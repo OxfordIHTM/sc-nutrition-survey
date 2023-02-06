@@ -13,7 +13,7 @@ knitr::include_graphics("images/heightBoard02.jpg")
 ```
 
 ```{r height03, fig.cap = "2-piece height board folded and carried", echo = FALSE, fig.align = "center", fig.retina = 1}
-knitr::include_graphics("images/shorrBrdcarry.jpg")
+knitr::include_graphics("images/ShorrBrdcarry.jpg")
 ```
 
 ## Personnel

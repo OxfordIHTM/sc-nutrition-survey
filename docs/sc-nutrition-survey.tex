@@ -1,0 +1,1285 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{tcolorbox}
+\usepackage{float}
+\graphicspath{ {images/} }
+
+\newenvironment{rmdremind}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Remember}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{remind.png}
+  \begin{itemize}}
+  {\end{itemize}
+  \end{includegraphics}
+  \end{tcolorbox}}
+
+\newenvironment{rmdnote}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Note}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{pencil.png}}
+  {\end{includegraphics}
+  \end{tcolorbox}}
+  
+\newenvironment{rmdexercise}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Exercise}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{exercise.png}}
+  {\end{includegraphics}
+  \end{tcolorbox}}
+  
+\newenvironment{rmdinfo}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Info}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{info.png}}
+  {\end{includegraphics}
+  \end{tcolorbox}}  
+  
+\newenvironment{rmdwarning}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Warning}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{warning.png}}
+  {\end{includegraphics}
+  \end{tcolorbox}}
+
+\newenvironment{rmddownload}
+  {\begin{tcolorbox}[width=\textwidth, 
+                     colback = {white}, 
+                     title = {\textbf{Download}}, 
+                     colbacktitle = lightgray,
+                     coltitle = black]
+  \begin{includegraphics}[scale = 1]{download.png}}
+  {\end{includegraphics}
+  \end{tcolorbox}}
+   
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={A Guide to Implementing Nutrition Surveys in Seychelles},
+  pdfauthor={Ministry of Health Republic of Seychelles},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A Guide to Implementing Nutrition Surveys in Seychelles}
+\author{Ministry of Health Republic of Seychelles}
+\date{2023-02-06}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{nutrition-surveys-in-seychelles}{%
+\chapter*{Nutrition Surveys in Seychelles}\label{nutrition-surveys-in-seychelles}}
+\addcontentsline{toc}{chapter}{Nutrition Surveys in Seychelles}
+
+\includegraphics{images/sc_moh.jpg}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Nutrition and food security surveys provide the information from which to assess the nutritional and food security status of a population. This document provides guidance on specific aspects of conducting nutrition and food security surveys. Chapter 2 to 7 focus on the various anthropometric measurements performed during nutrition surveys. \protect\hyperlink{anthro}{Chapter 2} first describes two forms of undernutrition - acute undernutrition and chronic undernutrition - and then explains each including the signs and symptoms associated and the anthropometric indices used to diagnose them. \protect\hyperlink{weight}{Chapter 3}, \ref{height}, \ref{muac}, and \ref{oedema} describes the equipment needed, the personnel required and the steps to undertake in performing weight, height, MUAC and oedema measurements respectively. \protect\hyperlink{standard}{Chapter 7} then discusses how survey personnel can be assessed as to their abilities to perform the various anthropometric measurements through a standardisation test.
+
+Throughout this document, there are boxed texts (specific blocks of text) that are meant to provide either a note/information, a reminder, a warning related to the topic being discussed. In addition, there are boxed texts that point to downloadable forms or documents that the main body of text is referring to.
+
+\hypertarget{anthro}{%
+\chapter{Childhood undernutrition and anthropometry}\label{anthro}}
+
+Childhood undernutrition is an important global public health issue contributing to nearly half of all deaths in children under 5 and is widespread in Asia and Africa. This chapter discusses the various forms of childhood undernutrition, describes the indices used to diagnose them and the anthropometric measurements performed that will provide data to calculate the various indices.
+
+\hypertarget{forms-of-childhood-undernutrition}{%
+\section{Forms of childhood undernutrition}\label{forms-of-childhood-undernutrition}}
+
+Childhood undernutrition manifests in various forms. It is important to note the use of the term undernutrition rather than malnutrition as this guide will not touch upon overweight and obesity. In this guide, the focus will be on two forms of undernutrition: 1) acute undernutrition; and, 2) chronic undernutrition. Childhood undernutrition manifested as micronutrient deficiencies will not be discussed.
+
+\hypertarget{acute-undernutrition}{%
+\subsection{Acute undernutrition}\label{acute-undernutrition}}
+
+Childhood \textbf{acute undernutrition} is a condition related to a child's acute inadequate nutrition leading to rapid weight loss or failure to gain weight normally. Situations such as acute shortage of food and/or acute episodes of childhood illnesses such as diarrhoea, acute respiratory infections and/or malaria can bring about this rapid weight loss or weight gain failure in children.
+
+\newpage
+
+A. Physical signs and symptoms
+
+Acute undernutrition in a child can manifest in two ways.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Marasmus}: This condition is also called \emph{wasting} given that a child suffering from it presents as \emph{wasted} with an appearance of \emph{``skin and bones''} because of \emph{excessive thinness} that is due to rapid loss of muscle and fatty tissue. Other physical features include the child's face looking like an old man's (\emph{old man facies} due to loss of facial subcutaneous fat), child's rib cage is easily visible and skin folds on buttocks and thighs appearing like \emph{``baggy pants''}.
+\item
+  \emph{Kwashiorkor}: Some children with acute undernutrition develop \emph{nutritional oedema}. Oedema is an accumulation of fluid in the tissue, especially the feet and legs and nutritional oedema is specifically characterised as being \emph{bilateral and pitting}. The child with \emph{kwashiorkor} is \emph{withdrawn}, \emph{irritable}, \emph{obviously ill} and \emph{will not eat}. The hair is thin, sparse and sometimes discoloured. The skin has symmetrical discoloured patches where the skin later cracks and peels off.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.19in]{images/oedema01} 
+
+}
+
+\caption{Child with bilateral oedema, skin and hair changes}\label{fig:unnamed-chunk-1-1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.94in]{images/oedema02} 
+
+}
+
+\caption{Bilateral pitting oedema}\label{fig:unnamed-chunk-1-2}
+\end{figure}
+
+B. Anthropometric indices
+
+The physical signs and symptoms of acute undernutrition described above are considered pathognomonic of the condition i.e., if these signs and symptoms are found in a child, it is very likely that the child has acute undernutrition. However, other than physical signs, there are anthropometric indices used to diagnose acute undernutrition in children.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Weight-for-height/weight-for-length
+\end{enumerate}
+
+The first independent criteria for \emph{marasmus} or \emph{wasting} is weight-for-height (WFH)/weight-for-length (WFL). Given \emph{child A}, this child's weight is assessed against the mean weight of a standard group of children in good health with the same height or length as \emph{child A} (length is measured when the child is \textless{} 85 cms in height or \textless{} 24 months old). \emph{Child A} is expected to have a weight close to the mean weight of the standard group of healthy children if \emph{child A} is also healthy and is not undernourished. However, if \emph{child A}'s weight deviates significantly farther from the mean weight of the standard group of healthy children, \emph{child A} is considered to have low weight for its height and therefore considered \emph{marasmic} or \emph{wasted}. This deviation from the mean, also called \emph{standard deviation (SD)} in statistics, is calculated for each child whose weight and height have been measured and is expressed in terms of \emph{z-scores}. Therefore, the anthropometric index used for \emph{wasting} is weight-for-height z-scores (WHZ) and classification of level of wasting is done based on the following WHZ cut-offs:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0139}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{WHZ}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Classification}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule()
+\endhead
+WHZ \textless{} -2SD & \multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5139} + 2\tabcolsep}@{}}{%
+Global Acute malnutrition (GAM)} \\
+-3SD \(\geq\) WHZ \textless{} -2SD & Moderate acute malnutrition (MAM) & \\
+WHZ \textless{} -3SD & Severe acute malnutrition (SAM) & \\
+\bottomrule()
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Mid-upper arm circumference
+\end{enumerate}
+
+The other independent criteria for \emph{marasmus} or \emph{wasting} is the \emph{mid-upper arm circumference} or \emph{MUAC}. \emph{MUAC} is a measure of muscle mass and therefore detects loss of muscle mass due to wasting. \emph{MUAC} is a good predictor of mortality and in many studies, \emph{MUAC} predicted death in children better than any other anthropometric indicator. Unlike weight-for-height, \emph{MUAC} is used as an anthropometric index without need for standardisation. The \emph{MUAC} cut-offs used to classify a child as being \emph{marasmic} or \emph{wasted} are:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0139}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MUAC (mm)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Classification}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule()
+\endhead
+MUAC \textless{} 125 & \multicolumn{2}{>{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5139} + 2\tabcolsep}@{}}{%
+Global Acute malnutrition (GAM)} \\
+115 \(\geq\) MUAC \textless{} 125 & Moderate acute malnutrition (MAM) & \\
+MUAC \textless{} 115 & Severe acute malnutrition (SAM) & \\
+\bottomrule()
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Oedema test
+\end{enumerate}
+
+The final index for acute undernutrition is \emph{oedema testing} for \emph{kwarshiorkor} cases. This test checks whether \emph{oedema} is present and whether it is \emph{bilateral} and \emph{pitting}. Any sign of bilateral pitting oedema, regardless of WHZ or MUAC classification, is considered \emph{severe acute malnutrition}.
+
+~
+
+C. Referral for cases with acute undernutrition
+
+Children with acute undernutrition are at higher risk of mortality than children who are not. Children with moderate acute malnutrition are 3 times more likely to die while children with severe acute undernutrition are 5 times more likely to die than their non-undernourished counterparts. It is therefore important that when children are identified as having acute undernutrition based on the anthropometric indices described above, they are referred accordingly for treatment. For MUAC and oedema, the diagnosis of acute undernutrition is clear and straightforward and those who measure or check for them would be able to immediately determine child's nutritional status and refer accordingly. With the weight-for-height index, the process is less straightforward because the weight and height measurements will have to be converted into z-scores which in turn are used to check against the stated cut-offs. In order to facilitate this conversion to z-scores particularly on-the-go in a field survey setting, the WHO provides reference tables that can be used to look up a child's height/length and weight in the appropriate reference table specific to the child's sex and age and then be able to determine the child's z-score. The reference tables are shown (and can be downloaded) below.
+
+\begin{rmddownload}
+Download the reference tables for boys 0-23 months \href{\%22pdf/boys_0_24.pdf\%22}{here}.
+\end{rmddownload}
+
+\begin{rmddownload}
+Download the reference tables for girls 0-23 months \href{\%22pdf/girls_0_24.pdf\%22}{here}.
+\end{rmddownload}
+
+\begin{rmddownload}
+Download the reference tables for boys 24-59 months \href{\%22pdf/boys_24_60.pdf\%22}{here}.
+\end{rmddownload}
+
+\begin{rmddownload}
+Download the reference tables for girls 24-59 months \href{\%22pdf/girls_24_60.pdf\%22}{here}.
+\end{rmddownload}
+
+\newpage
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{pdf/boys_0_24} 
+
+}
+
+\caption{Reference tables for boys 0-23 months}\label{fig:anthro1-1}
+\end{figure}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{pdf/boys_24_60} 
+
+}
+
+\caption{Reference tables for boys 24-59 months}\label{fig:anthro1-2}
+\end{figure}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{pdf/girls_0_24} 
+
+}
+
+\caption{Reference tables for girls 0-23 months}\label{fig:anthro1-3}
+\end{figure}
+\begin{figure}[H]
+
+{\centering \includegraphics[width=1\linewidth]{pdf/girls_24_60} 
+
+}
+
+\caption{Reference tables for girls 24-59 months}\label{fig:anthro1-4}
+\end{figure}
+
+\begin{rmdexercise}
+\textbf{Case: During the survey, you found a 10 month old girl with a length of 48.0 cms and weight of 3.3 kgs.}
+
+In this example, you will have to use the reference table for girls 0-24 months old.
+
+Find the length of the child on the reference table. In the left-most column of the reference table you will find the values for the length in centimetres. So for this child, you should look for 48.0 cm length in the left-most column.
+
+\includegraphics{images/whzRefTable01.png} \includegraphics{images/whzRefTable01a.png}
+
+Once you have found the girl's length in the left-most column, you now have to look for the girl's weight in the body of the table. Specifically, you should look for the girl's weight along the row corresponding to her length.
+
+\includegraphics{images/whzRefTable03.png} \includegraphics{images/whzRefTable03a.png}
+
+The weight of the child (3.3 kg) is indicated in the figure below.
+
+\includegraphics{images/whzRefTable03b.png}
+
+Then, to determine the z-score corresponding to the girl's height and weight, look up to the the uppermost row (header row) of the table where you will find the z-score values. Specifically, you should look up to the uppermost row (header row) of the column corresponding to the weight of the child.
+
+\includegraphics{images/whzRefTable02.png} \includegraphics{images/whzRefTable02a.png}
+
+So, in this example, the girl has a z-score of \texttt{+1SD}. The girl is not acutely undernourished.
+\end{rmdexercise}
+
+\hypertarget{chronic-undernutrition}{%
+\subsection{Chronic undernutrition}\label{chronic-undernutrition}}
+
+Childhood \textbf{chronic undernutrition} is a condition related to a child's exposure to inadequate nutrition over a long period of time leading to failure of linear growth. Stunted growth reflects a process of failure to reach linear growth potential as a result of suboptimal health and/or nutritional conditions.
+
+~
+
+A. Physical signs and symptoms
+
+A child suffering from chronic undernutrition is also called \emph{stunting/stunted}. Such a child is said to be short for its age (see below).
+
+~
+
+B. Anthropometric indices
+
+Like with acute undernutrition, an index is used to classify whether a child has chronic malnutrition or not. This index is called height-for-age (HFA) or length-for-age (LFA). Given \emph{child B}, this child's length/height is assessed against the mean length/height of a standard group of children in good health with the same age as \emph{child B}. \emph{Child B} is expected to have a length/height close to the mean length/height of the standard group of healthy children if \emph{child B} is also health and well-nourished. However, if \emph{child B}'s length/height deviates significantly farther from the mean height of the standard group of healthy children, \emph{child B} is considered to have low height for its age and therefore considered to be \emph{stunting} or \emph{stunted}. This deviation from the mean, also called \emph{standard deviation (SD)} in statistics, is calculated for each child whose height has been measured and is expressed in terms of \emph{z-scores}. Therefore, the anthropometric index used for \emph{stunting/stuntedness} is height-for-age z-scores (HAZ) and classification of level of stunting/stuntedness is done based on the following WHZ cut-offs:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3611}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{HAZ}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Classification}
+\end{minipage} \\
+\midrule()
+\endhead
+HAZ \textless{} -2SD & Global stunting/stuntedness \\
+-3SD \(\geq\) HAZ \textless{} -2SD & Moderate stunting/stuntedness \\
+HAZ \textless{} -3SD & Severe stunting/stuntedness \\
+\bottomrule()
+\end{longtable}
+
+\newpage
+
+\hypertarget{performing-anthropometric-measurements}{%
+\section{Performing anthropometric measurements}\label{performing-anthropometric-measurements}}
+
+As described in this chapter, to be able to assess the anthropometric indices for acute and chronic undernutrition four (4) anthropometric measurements needs to be collected: 1) \emph{weight}; 2) \emph{height}; 3) \emph{mid-upper arm circumference (MUAC)}; and, 4) \emph{oedema}. In addition to these anthropometric measurements, information on the child's \emph{age (in months)} and \emph{sex} will also be needed to be able to determine the appropriate reference standards to use in calculating the child's corresponding anthropometric indices. The next chapters provide detailed directions on how to perform the various anthropometric measurements accurately.
+
+\hypertarget{weight}{%
+\chapter{Measuring weight}\label{weight}}
+
+\hypertarget{equipment}{%
+\section{Equipment}\label{equipment}}
+
+Weighing scales are the equipment needed for measuring weight.
+
+\hypertarget{types-of-weighing-scales}{%
+\subsection{Types of weighing scales}\label{types-of-weighing-scales}}
+
+Various types of scales are available to measure the weight of a child: 1) \emph{spring scales}; 2) \emph{hanging scales}; 2) \emph{beam balance scales}; and, 3) \emph{digital scales}.
+
+\emph{Spring scales} are the most common type of scales used worldwide. \emph{Hanging scales} are a kind of \emph{spring scale} that is hung from a height instead of laid flat on the ground. \emph{Hanging scales} are commonly preferred in many countries because they can be transported easily, can be used in almost any setting (particularly where a flat surface is not available) and are relatively inexpensive. However, they are not very accurate and as such are not recommended for use in nutrition surveys.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.94in]{images/springScale} 
+
+}
+
+\caption{Bathroom scale (spring)}\label{fig:weight1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=5.08in]{images/hangingScale} 
+
+}
+
+\caption{Hanging scale (spring)}\label{fig:weight2}
+\end{figure}
+
+\emph{Balance beam scales} are commonly used in health centres, as they need to be positioned on a flat surface for accurate measurement and are not easily transported.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.94in]{images/balanceBeam} 
+
+}
+
+\caption{Balance beam scales}\label{fig:weight3}
+\end{figure}
+
+\emph{Digital scales} on the other hand are highly accurate (for as long as it is powered adequately and consistently), easily transportable though requiring a flat surface on which to be laid upon. They are generally of high quality and rugged for frequent field use as is needed for a nutrition survey. This is why \emph{digital scales} are what's currently recommended for use in anthropometric measurements in a field survey setting.
+
+In addition to being a \emph{digital scale}, it is recommended to weigh children using a scale with the following features:
+
+\begin{itemize}
+\item
+  Solidly built and durable
+\item
+  Electronic (digital reading)
+\item
+  Measures up to 150 kg
+\item
+  Measures to a precision of 0.1 kg (100g)
+\item
+  Allows tared weighing
+\end{itemize}
+
+\textbf{``Tared weighing''} means that the scale can be re-set to zero (\emph{``tared''}) with the person just weighed still on it. Thus, a mother can stand on the scale, be weighed, and the scale tared. While remaining on the scale, if she is given her child to hold, the child's weight alone appears on the scale.
+
+\emph{Digital scales} that allow for \textbf{tared weighing} have very clear advantages:
+
+\begin{itemize}
+\item
+  There is no need to subtract weights to determine the child's weight alone (reducing the risk of error).
+\item
+  The child is likely to remain calm when held in the mother's arms for weighing.
+\end{itemize}
+
+Currently, the most commonly used digital tared weighing scale is the \textbf{UNICEF Electric Scale (UNISCALE)} which is produced by \textbf{SECA} (the non-UNICEF branded scale is the \textbf{SECA model 890} or \textbf{SECA model 874})
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.86in]{images/seca874} 
+
+}
+
+\caption{SECA scale model 874}\label{fig:weight4}
+\end{figure}
+
+\hypertarget{general-use-care-and-maintenance-of-seca-tared-scales}{%
+\subsection{General use, care and maintenance of SECA tared scales}\label{general-use-care-and-maintenance-of-seca-tared-scales}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Place the scale on a hard, level surface (wood, concrete, or firm earth). Soft or uneven surfaces may cause small errors in weighing. It is therefore advisable that each survey team are provided with a wooden plank that can be laid on top of unlevel ground as a way to even out the surface. The plank should be big enough to cover a reasonable surface and sturdy enough to carry the weight of the scale and those being weighed.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/weight01} 
+
+}
+
+\caption{Weighing scale on a wooden plank}\label{fig:weight5}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  The scale will not function correctly if it becomes too warm. It is best to use the scale in the shade, or indoors. If the scale becomes hot and does not work correctly, place it in a cooler area and wait 15 minutes before using again.
+\item
+  The scale must adjust to changes in temperature. If the scale is moved to a new site with a different temperature, wait for 15 minutes before using the scale again. It is advisable to test the scale before every measurement when the scale is moved and operated in extreme weather conditions.
+\item
+  The scale must be tested every single day of fieldwork. This is best done using a labelled standard weight of 2.5 - 5.0 kg. This can be purchased locally, but must be tested initially to ensure that the indicated weight is accurate. Record the results of the daily test of the scale, including the date and weight. Using other types of standard weights is possible, but is not recommended. Some surveys have in the past used filled water bottles for testing, but as water or other liquids evaporate, this technique is flawed. Sand is a viable alternative, but only if labelled weights are not available.
+\item
+  Handle the scale carefully:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Do not drop or bump the scale.
+  \item
+    Do not weigh loads with a total weight of more than 150 kg.
+  \item
+    Do not store the scale in direct sunlight or other hot places.
+  \item
+    Protect the scale against excess humidity or wetness.
+  \item
+    Do not use the scale at temperatures below 10º C or above 45º C.
+  \end{itemize}
+\item
+  The scale is battery-powered. Around 120,000 weighings can be performed with a fresh set of batteries.
+\end{enumerate}
+
+\hypertarget{personnel}{%
+\section{Personnel}\label{personnel}}
+
+At least two trained personnel are required when performing weight measurement. One is assigned as the \textbf{measurer} while the other is assigned as the \textbf{assistant}. It is important that prior to the measurement of the weight of a child that these roles are clearly specified and that each personnel knows what their role entails. Switching roles between measurement of different children is acceptable for as long as all personnel are trained on performing the tasks expected of either \textbf{measurer} or \textbf{assistant}. For specific tasks for each role, see next section.
+
+\hypertarget{steps-in-weighing-a-child}{%
+\section{Steps in weighing a child}\label{steps-in-weighing-a-child}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Prepare the child for weighing}
+\end{enumerate}
+
+Explain to parents/caretakers that the child needs to remove outer clothing in order to obtain an accurate weight. A wet diaper, or shoes and jeans, can contribute substantially to the measured weight (up to 0.5 kgs) making the measurement inaccurate. Babies should be weighed naked but precautions needs to be put in place to ensure that the baby stay warm while waiting to be weighed and while they are being weighed. They can be wrapped in a blanket to keep them warm while waiting. When being weighed, the adult can be weighed holding a blanket that can be used to wrap around the naked baby during measurement. Older children should remove all but minimal clothing, such as their underclothes.
+
+If it is too cold to undress a child or if the child resists being undressed and becomes agitated, please weigh the clothed child, but indicate in the questionnaire that the child could not be undressed to the minimum and take a note of the circumstances. To be able to adjust the weight of clothed children, weigh one set of child's clothing separately and record. This weight will be used in adjusting the weight measurement of all children weighed with clothes on.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Switch on scale}
+\end{enumerate}
+
+The \textbf{measurers} should switch on the scale with no weight applied. The \textbf{SECA 874} can be turned on by tapping the \textbf{start} button. The \textbf{SECA 890} can be turned on by covering the solar cells for less than a second.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.86in]{images/seca874start} 
+
+}
+
+\caption{Turning on the SECA 874}\label{fig:weight6}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.86in]{images/seca890start} 
+
+}
+
+\caption{Turning on the SECA 890}\label{fig:weight7}
+\end{figure}
+
+When the \textbf{SECA 890} is switched on, you will first notice the display showing \texttt{188.8}. Wait for the display to turn \texttt{0.0} before putting any weight onto the scale. The \textbf{assistant} on the other hand will be holding onto the paper questionnaire or the mobile device. The \textbf{assistant} will be in charge of recording the weight measurement.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.86in]{images/seca890zero} 
+
+}
+
+\caption{SECA 890 ready}\label{fig:weight8}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \emph{Weighing the child}
+\end{enumerate}
+
+This step differs between children who are able to stand still on the scale long enough for a measurement to be read and recorded and children who are too young to do so. Generally, children 2 years and above should be able to stand on the scale still on their own long enough. However, it is to the discretion of the \textbf{measurer} whether this is the case or not.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \emph{Weigh child on scale on their own}
+\end{enumerate}
+
+If child is able to stand still on the scale long enough, the child can be weighed alone. \textbf{Measurer} should explain to the child that he/she will need to step on to the scale alone and standing very still. \textbf{Measurer} will ask the child to stand in the middle of the scale, feet slightly apart and to remain still until the weight appears and that the measurement is retained on the display (about 3 seconds that the measurement is stable with child standing still and not moving the display will stop flashing signifying that the weight display has been stored). It is important that no one holds or supports the child until a weight measurement has been retained on the display successfully as this will interfere with the measurement. If the child does not stand still or is unable or does not want to stand on his/her own, then step b below should performed instead.
+
+The \textbf{measurer} then reads out loud the child's weight from the display. The \textbf{measurer} should read the measurement entirely including the one decimal place that shows in display (to the nearest 0.1 kg). Note that when using the SECA 874, the weight is displayed with two decimal places but the second decimal number is always 0. The second decimal place is not recorded.
+
+The \textbf{assistant} then repeats the weight that has been called out.
+
+The \textbf{measurer} then confirms if this is the correct weight. If correct, then the \textbf{assistant} records the weight measurement on the paper questionnaire or on the mobile device. If incorrect, \textbf{measurer} reads out the measurement again until the \textbf{assistant} is able to repeat the correct weight.
+
+The child can then step off the scale.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \emph{Tared weighing}
+\end{enumerate}
+
+If child is unable to stand still on the scale long enough or if child doesn't want to stand on the scale alone, then this child should be measured using \emph{tared weighing}.
+
+The \textbf{measurer} asks the mother/caretaker to step onto the scale and then to stand still. After about 3 seconds, the weight of the mother/caretaker will be displayed.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.11in]{images/seca874adult} 
+
+}
+
+\caption{Weighing the adult first on the SECA 874}\label{fig:weight9}
+\end{figure}
+
+If using the \textbf{SECA 874}, the \textbf{measurer} will have to press the \textbf{2 in 1} key found on the scale. This will store the weight of the mother/caretaker. The display on the device would show \texttt{0.0} reading and the word \textbf{NET} indicating that the weight of the mother/caretaker has been stored.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.6in]{images/seca874net} 
+
+}
+
+\caption{Taring the SECA 874}\label{fig:weight10}
+\end{figure}
+
+If using the \textbf{SECA 890}, the \textbf{measurer} will have to cover the solar cell of the device for less than a second and the display will revert back to \texttt{0.0} reading. This indicates that the weight of the mother/caretaker has been stored.
+
+\begin{figure}
+
+{\centering \includegraphics[width=5.51in]{images/seca890cover} 
+
+}
+
+\caption{Taring the SECA 890}\label{fig:weight11}
+\end{figure}
+
+The \textbf{measurer} then asks the mother/caretaker to hold/carry the baby/child on their arms and to again stand as still as possible. The display will show a weight measure. If the weight display and the message \texttt{HOLD} are flashing, it means that the scale is waiting for the measurement to stabilise. The \textbf{measurer} should wait for the weight display and the message \texttt{HOLD} to stop flashing before reading the weight measurement.
+
+\begin{figure}
+
+{\centering \includegraphics[width=3.32in]{images/seca874hold} 
+
+}
+
+\caption{SECA 874 on hold}\label{fig:weight12}
+\end{figure}
+
+Once the weight display has stopped flashing, The \textbf{measurer} reads out loud the child's weight from the display. The \textbf{measurer} should read the measurement entirely including the one decimal place that shows in display. Note that when using the SECA 874, the weight is displayed with two decimal places but the second decimal number is always 0. The second decimal place is not recorded.
+
+The \textbf{assistant} then repeats the weight that has been called out.
+
+The \textbf{measurer} then confirms if this is the correct weight. If correct, then the \textbf{assistant} records the weight measurement on the paper questionnaire or on the mobile device. If incorrect, \textbf{measurer} reads out the measurement again until the \textbf{assistant} is able to repeat the correct weight.
+
+~
+
+\begin{rmdremind}
+\item
+
+Always calibrate scales ever day in the morning before data collection.
+
+\item
+
+Always measure weight before height.
+
+\item
+
+If there is more than 1 eligible child in a household, always weigh the less agitated one first.
+
+\item
+
+Try and obtain scales that are sturdy but light enough to be carried easily by the team.
+
+\item
+
+Measure weight without clothes.
+\end{rmdremind}
+
+\hypertarget{height}{%
+\chapter{Measuring height}\label{height}}
+
+\hypertarget{equipment-1}{%
+\section{Equipment}\label{equipment-1}}
+
+A height board, sometimes called a heightometer or stadiometer, is the tool used to measure height of children. It is usually constructed based on a ruler with a sliding horizontal headpiece which adjusts to rest on top of the head. Some common types of height boards are the wooden 2-piece and wooden 3-piece, plastic free-standing, aluminium free-standing and locally-produced boards. Of these, it is preferable to use wooden measuring boards as opposed to aluminium boards which can get very hot in the sun and burn children. The measuring board should be at least 130 cm long and made of hardwood with a hard water-resistant finish. Choice of woods is important. The board should be light enough to be easily carried in the field from house to house. The board should have two tape measures attached to it, one on each side, and they should be marked out in 0.1 cm increments. The board should be easily set upright to measure height with the head piece of the length board becoming the base when the board is set upright.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.57in]{images/heightBoard01} 
+
+}
+
+\caption{2-piece height board standing up}\label{fig:height01}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.29in]{images/heightBoard02} 
+
+}
+
+\caption{2-piece height board lying down}\label{fig:height02}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=3.42in]{images/ShorrBrdcarry} 
+
+}
+
+\caption{2-piece height board folded and carried}\label{fig:height03}
+\end{figure}
+
+\hypertarget{personnel-1}{%
+\section{Personnel}\label{personnel-1}}
+
+A minimum of two personnel are needed to measure the height or length of a child. If human resources are not an issue, a three-person team would be ideal especially when taking the length of the child. For a two-person team, one is assigned as the \textbf{measurer} while the other is assigned as the \textbf{assistant}. It is important that prior to the measurement of the height of a child that these roles are clearly specified and that each personnel knows what their role entails. Switching roles between measurement of different children is acceptable for as long as all personnel are trained on performing the tasks expected of either \textbf{measurer} or \textbf{assistant}. For specific tasks for each role, see next section.
+
+\hypertarget{steps-in-measuring-length-or-height-of-child}{%
+\section{Steps in measuring length or height of child}\label{steps-in-measuring-length-or-height-of-child}}
+
+Depending on the age of the child, either the weight or the length is measured. For children less than 24 months old (or for height less than 85 cms), length should be measured i.e., height board on recumbent position with the child lying down using a length board which should be placed on a flat, stable surface such as a table.
+
+\begin{figure}
+
+{\centering \includegraphics[width=7.28in]{images/heightBoard03} 
+
+}
+
+\caption{Length board flat on a stable surface}\label{fig:height04}
+\end{figure}
+
+For children 24 months and older, height should be measured i.e., height board on the vertical position with the child standing up (unless child is unable to stand). Use a height board mounted at a right angle between a level floor and against a straight, vertical surface such as a wall or pillar.
+
+\begin{figure}
+
+{\centering \includegraphics[width=5.4in]{images/heightBoard04} 
+
+}
+
+\caption{Height board mounted upright}\label{fig:height05}
+\end{figure}
+
+Measuring children standing up is much easier. Length is much more difficult to measure than height.
+
+Standing height is about 0.7 cm less than recumbent length. This difference was taken into account in developing the WHO growth standards. Therefore, it is important to adjust the measurements if length is taken instead of height, and vice versa.
+
+\begin{itemize}
+\item
+  If a child less than 2 years old will not lie down for measurement of length, measure standing height and add 0.7 cm to convert it to length.
+\item
+  If a child aged 2 years or older cannot stand, measure recumbent length and subtract 0.7 cm to convert it to height.
+\end{itemize}
+
+It is recommended that this adjustment to not be made by enumerators during the survey. Instead, an entry in the data collection form / survey instrument should be included that indicates whether measurement made was a height or a length measurement. This will allow adjustments to be made to the height/length measurements post-survey.
+
+\hypertarget{measuring-height}{%
+\subsection{Measuring height}\label{measuring-height}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.49in]{images/height} 
+
+}
+
+\caption{Steps in measuring height}\label{fig:height06}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Measurer} or \textbf{Assistant} should place the measuring board on a hard flat surface against a wall, table, tree, staircase, etc. Make sure the board is stable. Check that shoes, socks and hair ornaments have been removed.
+\item
+  \textbf{Measurer} or \textbf{Assistant} should ask the mother to remove the child's shoes and unbraid any hair that would interfere with the height measurement. Ask mother to walk the child to the board and to kneel in front of the child.
+\item
+  \textbf{Assistant} should place the paper questionnaire or mobile device on the ground (\textbf{arrow 1}) and kneel with both knees on the right side of the child (\textbf{arrow 2}).
+\item
+  \textbf{Measurer} should kneel on their right knee only, for maximum mobility, on the child's left side (\textbf{arrow 3}).
+\item
+  \textbf{Assistant} should place the child's feet flat and together in the centre of and against the back and base of the board. The assistant should place right hand just above the child's ankles on the shins (\textbf{arrow 4}) with left hand on the child's knees (\textbf{arrow 5}) and push against the board making sure the child's legs are straight and the heels and calves are against the board (\textbf{arrows 6} and \textbf{7}). The \textbf{assistant} then notifies the measurer when positioning of the feet and legs is complete.
+\item
+  \textbf{Measurer} tells the child to look straight ahead at the mother if she is in front of the child. Make sure the child's line of sight is level with the ground (\textbf{arrow 8}). \textbf{Measurer} places open left hand on the child's chin and gradually closes hand (\textbf{arrow 9}) taking care that the child's mouth or ears are not covered. The \textbf{measurer} makes sure the shoulders are level (\textbf{arrow 10}), the hands are at the child's side (\texttt{arrow\ 11}), and the head, shoulder blades and buttocks are against the board (\textbf{arrows 12}, \textbf{13} and \textbf{14}). With the right hand, the \textbf{measurer} lowers the headpiece on top of the child's head making sure that the headpiece pushes through the child's hair (\textbf{arrow 15}).
+\item
+  \textbf{Measurer} and \textbf{Assistant} should check the child's position (\textbf{arrow 1-15}) and repeating any steps necessary.
+\item
+  When the child's position is correct, the \textbf{measurer} reads and calls out the measurement to the nearest 0.1cm. Then, the \textbf{measurer} removes the headpiece from the child's head and releases the left hand from the child's chin and supports the child during the recording.
+\item
+  \textbf{Assistant} immediately records the measurement and shows it to the \textbf{measurer}.
+\item
+  \textbf{Measurer} checks the recorded measurement on the questionnaire for accuracy and legibility and instructs the \textbf{assistant} to erase and correct any errors.
+\end{enumerate}
+
+~
+
+\begin{rmdnote}
+If you are unsure or not confident in the precision of the child's age (over age 2), please take measurement as described above. If the child's height is measured to less than 85 cm, you must instead measure the child's length (see \protect\hyperlink{measuring-length}{Measuring length}).
+\end{rmdnote}
+
+~
+
+\begin{rmdwarning}
+Common mistakes when measuring height include 1) child leaning to one side; 2) heels not touching the board; 3) hands not at side.
+\end{rmdwarning}
+
+\hypertarget{measuring-length}{%
+\subsection{Measuring length}\label{measuring-length}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=12.46in]{images/length} 
+
+}
+
+\caption{Steps in measuring length}\label{fig:height07}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Measurer} or \textbf{assistant} places the measuring board on a hard flat surface, such as the ground, floor or a steady table. Cover the length board with a thin cloth or soft paper for hygiene and for the baby's comfort.
+\item
+  \textbf{Assistant} places the paper questionnaire or the mobile device on the ground, floor or table (\textbf{arrow 1}) and kneels with both knees behind the base of the board, if it is on the ground or floor (\textbf{arrow 2}).
+\item
+  \textbf{Measurer} kneels on the child's right side and holds the footpiece with right hand (\textbf{arrow 3}).
+\item
+  With the mother's/caretaker's help, the \textbf{measurer} and \textbf{assistant} should lay the child on the board. The \textbf{assistant} should support the back of the child's head with hands and gradually lower the child onto the board. The \textbf{measurer} on the other hand supports the child at the trunk of the body.
+\item
+  \textbf{Measurer} or \textbf{assistant} asks the mother/caretaker to kneel on the opposite side of the board facing the measurer to help keep the child calm.
+\item
+  \textbf{Assistant} cups hands over the child's ears (\textbf{arrow 4}). With arms comfortably straight (\textbf{arrow 5}), \textbf{assistant} places the child's head against the base of the board so that the child is looking straight up. The child's line of sight should be perpendicular to the ground (\textbf{arrow 6}). The \textbf{assistant's} head should be straight over the child's head and looking directly into the child's eyes.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.07in]{images/heightBoard05} 
+
+}
+
+\caption{Positioning child's head against the base of the board}\label{fig:height08}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  \textbf{Measurer} makes sure the child is lying flat and in the centre of the board (\textbf{arrow 7}) and places left hand on the child's shins (above the ankles) or on the knees (\textbf{arrow 8}) pressing them firmly against the board. Note that With the right hand, \textbf{measurer} places the footpiece firmly against the child's heels (\textbf{arrow 9}).
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=8.04in]{images/heightBoard06} 
+
+}
+
+\caption{Measurer and assistant working together to position child}\label{fig:height09}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\item
+  \textbf{Measurer} and \textbf{assistant} checks the child's position (\textbf{arrows 4-9}) and repeats any steps as necessary to correct child's position.
+\item
+  When the child's position is correct, \textbf{measurer} reads and calls out the measurement to the nearest 0.1 centimetre. The \textbf{measurer} then removes the footpiece, releases left hand from the child's shins or knees and supports the child during the recording.
+\item
+  The \textbf{assistant} then immediately releases the child's head, records the measurement on the paper questionnaire or mobile device and shows it to the \textbf{measurer}. Alternatively, the \textbf{assistant} calls out the measurement and have the \textbf{measurer} confirm by repeating back.
+\item
+  \textbf{Assistant} records whether the child was measured lying down or standing up.
+\item
+  \textbf{Measurer} checks the recorded measurement on the questionnaire for accuracy and legibility then instructs the assistant to cancel and correct any errors.
+\end{enumerate}
+
+~
+
+\begin{rmdnote}
+If you are unsure or not confident in the precision of the child's age (under age 2), take measurement as described above. If the child's length is measured to 85 cm or more, you must instead measure the child's height (see \protect\hyperlink{measuring-height}{Measuring height}).
+\end{rmdnote}
+
+~
+
+\begin{rmdwarning}
+Common mistakes when measuring length include 1) toes pointed; 2) knees bent; 3) head lifted off the board.
+\end{rmdwarning}
+
+~
+
+\begin{rmdremind}
+\item
+
+The measuring boards should be at least 130 cm in length and be made of treated wood.
+
+\item
+
+There should be measuring tape on both sides of the measuring board.
+
+\item
+
+The measuring board must be cleaned before being stored.
+
+\item
+
+Record measurements to the nearest 0.1 cm.
+\end{rmdremind}
+
+\hypertarget{muac}{%
+\chapter{Measuring mid-upper arm circumference (MUAC)}\label{muac}}
+
+\hypertarget{equipment-2}{%
+\section{Equipment}\label{equipment-2}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.11in]{images/muac01} 
+
+}
+
+\caption{MUAC tape with colour cut-offs at 115 mm and 125 mm}\label{fig:muac1}
+\end{figure}
+
+MUAC is a quick and simple way to determine whether or not a child is malnourished using a simple coloured plastic strip. There are different types of MUAC tape available. All are graduated in millimetres and some are colour coded (red, yellow and green) to indicate the nutritional status of a child or adult. The colour codes and gradations vary depending on the tape type.
+
+The most appropriate MUAC tape to use would be the tapes that use the latest WHO Growth Standards cut-offs for acute malnutrition. These are the tapes that have three colours (red, yellow, green) with colour cut-offs at 115 mm and 125 mm. The MUAC tapes should also be precise up to 1 mm. The material for the MUAC tape needs to be flexible but non-stretchable. An example of this kind of MUAC tape is shown in Figure \ref{fig:muac1}.
+
+\hypertarget{personnel-2}{%
+\section{Personnel}\label{personnel-2}}
+
+Only a single \textbf{measurer} is required to measure the MUAC of a child. If with an \textbf{assistant} is available, he/she records the MUAC measurement.
+
+\hypertarget{steps-in-measuring-muac}{%
+\section{Steps in measuring MUAC}\label{steps-in-measuring-muac}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=10.96in]{images/muac02} 
+
+}
+
+\caption{Steps in measuring MUAC}\label{fig:muac2}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  When measuring MUAC, ensure work at eye level. Sit down when possible. Very young children can be held by their mother during this procedure. Ask the mother to remove clothing that may cover the child's left arm.
+\item
+  \textbf{Measurer} calculates the midpoint of the child's left upper arm by first locating the tip of the child's shoulder (\textbf{arrows 1} and \textbf{2}) with finger tips. Bend the child's elbow to make a right angle (\textbf{arrow 3}). Place the tape at zero, which is indicated by two arrows, on the tip of the shoulder (\textbf{arrow 4}) and pull the tape straight down past the tip of the elbow (\textbf{arrow 5}). Read the number at the tip of the elbow to the nearest centimetre. Divide this number by two to estimate the midpoint. As an alternative, bend the tape up to the middle length to estimate the midpoint. A piece of string can also be used for this purpose. Either you or an assistant can mark the midpoint with a pen on the arm (\textbf{arrow 6}).
+\item
+  \textbf{Measurer} straightens the child's arm and wraps the tape around the arm at midpoint. Make sure the numbers are right side up. Make sure the tape is flat around the skin (\textbf{arrow 7}).
+\item
+  \textbf{Measurer} and \textbf{assistant} inspects the tension of the tape on the child's arm. Make sure the tape has the proper tension (\textbf{arrow 7}) and is not too tight or too loose (\textbf{arrows 8-9}). Repeat any steps as necessary.
+\item
+  \textbf{Assistant} is on ready with the paper questionnaire or the mobile device.
+\item
+  When the tape is in the correct position on the arm with the correct tension, \textbf{measurer} reads and calls out the measurement to the nearest 0.1 cm. (\textbf{arrow 10}).
+\item
+  \textbf{Assistant} immediately records the measurement on the questionnaire or the mobile device and shows it to the \textbf{measurer}.
+\item
+  While the assistant records the measurement, \textbf{measurer} loosens the tape on the child's arm.
+\item
+  \textbf{Measurer} checks the recorded measurement on the questionnaire or mobile device for accuracy and legibility then instructs the assistant to erase and correct any errors.
+\item
+  \textbf{Measurer} removes the tape from the child's arm.
+\end{enumerate}
+
+~
+
+\begin{rmdwarning}
+Common mistakes when measuring MUAC include \textbf{1)} measuring on the right arm; \textbf{2)} estimating (rather than measuring) the mid-point of the upper arm; \textbf{3)} bending the MUAC tape when measuring the midpoint; \textbf{4)} not measuring the midpoint from the tip of the shoulder to the elbow bend; \textbf{5)} pulling the MUAC tape too tight; \textbf{6)} not pulling the MUAC tape tight enough (too slack); \textbf{7)} not reading the tape accurately (to nearest smillimetre).
+\end{rmdwarning}
+
+\hypertarget{oedema}{%
+\chapter{Checking for oedema}\label{oedema}}
+
+Nutritional oedema, manifested as bilateral pitting oedema, is a sign of severe acute malnutrition. Nutritional oedema always starts from the feet and extends upwards to other parts of the body. Children with nutritional oedema are at high risk of mortality hence require immediate therapeutic care. This \protect\hyperlink{oedema}{chapter} describes how to check nutritional oedema.
+
+\hypertarget{equipment-3}{%
+\section{Equipment}\label{equipment-3}}
+
+No tool or equipment is needed for checking for nutritional oedema.
+
+\hypertarget{personnel-3}{%
+\section{Personnel}\label{personnel-3}}
+
+Oedema check can be performed by a single person.
+
+\hypertarget{steps-in-checking-for-nutritional-oedema}{%
+\section{Steps in checking for nutritional oedema}\label{steps-in-checking-for-nutritional-oedema}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Press both feet with thumbs
+\end{enumerate}
+
+Using both thumbs of your hands, apply normal pressure on top of both feet of the child for about three seconds as shown below. You can estimate three seconds by counting \textbf{\emph{`one thousand and one, one thousand and two, one thousand and three'}} in English. It takes roughly 3 seconds to be able to say these words.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.94in]{images/oedemaStep1} 
+
+}
+
+\caption{Press both feet with thumbs}\label{fig:oedemaStep1}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Release pressure from feet
+\end{enumerate}
+
+After three seconds, release the pressure you are applying on the child's feet. Observe the resulting effect on the child's feet.
+
+If there is oedema, an impression remains on both feet for a few seconds as shown below.
+
+\begin{figure}
+
+{\centering \includegraphics[width=6.94in]{images/oedemaStep2} 
+
+}
+
+\caption{Bilateral pitting oedema observed after releasing thumbs}\label{fig:oedemaStep2}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Move up to check on the lower legs
+  If there is nutritional oedema present on the feet, perform the same test described in step 2 but now move up to the lower legs.
+\item
+  Move up to the upper body and/or face
+  If there is nutritional oedema present on the lower legs, perform the same test described in step 2 but now move up to the upper body and/or the face.
+\end{enumerate}
+
+\textbf{Step 3} and \textbf{Step 4} are performed to be able to grade or classify the level of nutritional oedema the child is suffering from (if present).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7922}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2078}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Oedema Description}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Grade}
+\end{minipage} \\
+\midrule()
+\endhead
+Oedema below the knees & \texttt{+} \\
+Oedema in both feet and legs, below the knees & \texttt{++} \\
+Oedema in both feet, legs, arms and sacral pad and eyelids & \texttt{+++} \\
+\bottomrule()
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Record on the paper questionnaire or the mobile device the presence or absence of oedema. If oedema is present, record also the grade of the oedema.
+\end{enumerate}
+
+~
+
+\begin{rmdnote}
+Children with oedema (any grade) are at a high risk of dying and should be immediately referred to a health care facility (ideally a facility that manages severe acute undernutrition).
+\end{rmdnote}
+
+~
+
+\begin{rmdremind}
+\item
+
+Oedema is a very rare event.
+
+\item
+
+It is the most common source of errors.
+
+\item
+
+Be careful of misclassifying oedematous child.
+
+\item
+
+Team leader and/or supervisor should confirm oedema.
+\end{rmdremind}
+
+\hypertarget{standard}{%
+\chapter{Anthropometric measurement standardisation test}\label{standard}}
+
+The survey personnel should go through theoretical discussions and demonstrations on how to perform the anthropometric measurements. This should then be followed by practical demonstration of the measurement techniques, measurement readings and recording ideally with a large number of children particularly if there is a large number of survey personnel. Once all personnel have had the opportunity to adequately practice their measurement and recording techniques, a standardisation test or exercise must be carried out. Chapter \ref{standard} provides detailed instructions on how to carry out an anthropometric measurement standardisation test as part of a training process in preparation for a nutrition survey.
+
+\hypertarget{objectives}{%
+\section{Objectives}\label{objectives}}
+
+The standardisation test evaluates the \textbf{precision} and the \textbf{accuracy} of the measurements taken by each survey personnel.
+
+The \textbf{accuracy} of measurements taken by survey personnel is determined by how close they are to the true value with repeated measurements. On the other hand, the \textbf{precision} of measurements taken by survey personnel is determined by how similar the values are of repeated measurements made. In preparation for a nutrition survey while the survey personnel are in training, the aim is for survey personnel to be \emph{highly accurate} and \emph{highly precise} with their anthropometric measurements.
+
+\begin{figure}
+
+{\centering \includegraphics[width=11.11in]{images/accuracyPrecision} 
+
+}
+
+\caption{Relationship between accuracy and precision}\label{fig:standard01}
+\end{figure}
+
+\hypertarget{mechanics}{%
+\section{Mechanics}\label{mechanics}}
+
+The general process of the standardisation test is for each survey personnel to take measurements of at least 10 children 6-59 months, twice, with an interval of time between the 1st and 2nd measurements.
+
+\hypertarget{test-parameters}{%
+\subsection{Test parameters}\label{test-parameters}}
+
+The following test parameters need to be followed when conducting an anthropometric standardisation test:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The same type of equipment must be used both during the standardisation test and the survey
+\item
+  Each child is measured with the same equipment
+\item
+  The supervisor must observe how measurements are being taken
+\item
+  Survey personnel measurements are compared to the reference (supervisor) values
+\item
+  Survey personnel measurements are compared to the repeated measures taken (intra-observer)
+\end{enumerate}
+
+\hypertarget{test-organisation-and-requirements}{%
+\subsection{Test organisation and requirements}\label{test-organisation-and-requirements}}
+
+The following test organisation and requirements need to be met in order to conduct a credible standardisation test:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Spacious and shady area
+\item
+  Healthy children between 6 and 59 months or according to the age group targeted by the survey
+\item
+  Incentives provided for the mother and children
+\item
+  Survey personnel are grouped into pairs, but each personnel will carry out the measurements in turn
+\item
+  There should only be one pair of survey personnel per child at any time during the test
+\item
+  Each survey personnel is given a unique ID. For example if there are 20 survey personnel, a unique ID from 1 to 20 is given to each survey personnel. The supervisor's ID is always 0
+\item
+  Each measurement station should have a height board, weighing scale and a MUAC tape
+\item
+  Each child must remain with their mother in a fixed station with a unique ID number. For example if there are 10 mother and children pairs, a unique ID from 1 to 10 is given to each pair
+\item
+  It is not allowed for pairs of survey personnel to speak with other pairs during the test
+\end{enumerate}
+
+\hypertarget{timeframe}{%
+\subsection{Timeframe}\label{timeframe}}
+
+In order to follow the test parameters specified above and organise the test appropriately, a considerable amount of time needs to be set aside for conducting the test.
+
+For a survey team of about 20 survey personnel, the test can be carried out in 2 half-days such that half of the survey personnel (first half of each team) measures 10 children in the morning and the other half (second half of each team) measures the same 10 children in the afternoon.
+
+It would be possible to have a different set of 10 children for the afternoon session. However, the results of the first half who took the test in the morning cannot be combined with the results of the second half who took the test in the afternoon.
+
+For larger scale surveys with survey personnel more than 20, more days will be required to conduct the test to appropriately and to correct specifications.
+
+\hypertarget{steps-in-carrying-out-the-standardisation-test}{%
+\subsection{Steps in carrying out the standardisation test}\label{steps-in-carrying-out-the-standardisation-test}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The supervisor carefully performs the measurements on each child without allowing the teams to see the values. The supervisor records his/her measurements on the standardisation test form for the first round of measurements.
+\end{enumerate}
+
+Standardisation Test Form - Measurement Round 1
+
+Enumerator ID: \_\_\_\_\_ ~ ~ ~ Enumerator Name: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1944}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Child ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Weight (kg)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Height (cm)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MUAC (mm)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Oedema (yes/no)
+\end{minipage} \\
+\midrule()
+\endhead
+01 & & & & \\
+02 & & & & \\
+03 & & & & \\
+04 & & & & \\
+05 & & & & \\
+06 & & & & \\
+07 & & & & \\
+08 & & & & \\
+09 & & & & \\
+10 & & & & \\
+\bottomrule()
+\end{longtable}
+
+\begin{rmddownload}
+Download the standardisation test form \href{pdf/standardForm.pdf}{here}.
+\end{rmddownload}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Each team starts with a different child, and the first half of the team measures the child once and records the results in a standard form for the 1st measurement (as above). The current measurer should make sure that he/she is entering data in the row corresponding to the child ID of the child he/she is currently measuring.
+\item
+  When the first half of the team has done the measurements for the current child, they should move on to the next child. After the first half of all the teams has measured 10 children once, the first measurement round forms are handed in. The teams and the children then take a break. Appropriate incentives including food and drinks to snack on during the break should be provided to the mothers and children.
+\item
+  After the break, the first half of the team repeats the whole process and measures each child for the second time and records his/her measurements onto the standardisation test form for the second round of measurements. After the the first half of all the teams has measured 10 children twice, the second measurement round forms are handed in. The teams and the children then take a break for lunch (end of first half of the day/first half of the test). Appropriate lunch arrangements should be prepared for the mothers and children.
+\item
+  After the lunch break or on a new day altogether, the whole process is done all over again but this time, the second half of the teams will be performing the measurements. Ideally, the same set of mother and child pairs should be utilised for the second half day of testing. However, it may be that some of the mothers will be unable to come back to help. If for the second half day of testing the mother and child pairs are different from the first half day, then measurements made in the second half day cannot be mixed with the data from the first half day when reporting on the performance in the standardisation test of the survey personnel.
+\end{enumerate}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+  \bibliography{book.bib}
+
+\end{document}

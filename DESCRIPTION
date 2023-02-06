@@ -1,7 +1,9 @@
-Package: nutrisurvey
-Title: A Guide to Implementing Nutrition and Food Security Surveys
+Package: sc-nutrition-survey
+Title: A Guide to Implementing Nutrition Surveys in Seychelles
 Version: 0.1.0
-Authors@R: person("Ernest", "Guevarra", email = "ernestgmd@gmail.com", role = c("aut", "cre"))
+Authors@R: person(
+    "Ernest", "Guevarra", email = "ernest@guevarra.io", role = c("aut", "cre")
+  )
 Depends: R (>= 3.0.1)
 Imports:
     bookdown

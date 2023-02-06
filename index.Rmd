@@ -1,7 +1,7 @@
 --- 
-title: "A Guide to Implementing Nutrition and Food Security Surveys"
-author: "Valid International"
-date: "05/03/2018"
+title: "A Guide to Implementing Nutrition Surveys in Seychelles"
+author: "Ministry of Health Republic of Seychelles"
+date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ["book.bib"]
@@ -10,13 +10,14 @@ link-citations: TRUE
 links-as-notes: FALSE
 colorlinks: TRUE
 fontsize: 12pt
-url: https\://nutrisurvey.validmeasures.org
-github-repo: nutriverse/nutrisurvey
-cover-image: images/nutrisurvey.png
-description: "A guide to nutrition and food security surveys"
+url: https\://oxford-ihtm.io/sc-nutrition-survey
+github-repo: Oxford/sc-nutrition-survey
+cover-image: images/sc_moh.jpg
+description: "A guide to nutrition surveys in Seychelles"
 ---
 
-# Welcome to Nutrisurvey {-}
+# Nutrition Surveys in Seychelles {-}
 
-![](images/nutrisurvey.png)
-
+<center>
+![](images/sc_moh.jpg)
+</center>
