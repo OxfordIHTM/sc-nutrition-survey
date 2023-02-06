@@ -16,7 +16,9 @@ cover-image: images/sc_moh.jpg
 description: "A guide to nutrition surveys in Seychelles"
 ---
 
-# Nutrition Surveys in Seychelles {-}
+# Welcome {-}
+
+This is the Republic of Seychelles Ministry of Health guide to implementing nutrition surveys. This guide has been developed in support of the national nutrition survey for children under 5 years old in 2024.
 
 <center>
 ![](images/sc_moh.jpg)
