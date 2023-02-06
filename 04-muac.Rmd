@@ -1,4 +1,4 @@
-# Measuring mid-upper arm circumference (MUAC) {#muac}
+# Measuring MUAC {#muac}
 
 ## Equipment
 
@@ -6,7 +6,7 @@
 knitr::include_graphics("images/muac01.png")
 ```
 
-MUAC is a quick and simple way to determine whether or not a child is malnourished using a simple coloured plastic strip. There are different types of MUAC tape available. All are graduated in millimetres and some are colour coded (red, yellow and green) to indicate the nutritional status of a child or adult. The colour codes and gradations vary depending on the tape type.
+Mid-upper arm circumference or MUAC is a quick and simple way to determine whether or not a child is malnourished using a simple coloured plastic strip. There are different types of MUAC tape available. All are graduated in millimetres and some are colour coded (red, yellow and green) to indicate the nutritional status of a child or adult. The colour codes and gradations vary depending on the tape type.
 
 The most appropriate MUAC tape to use would be the tapes that use the latest WHO Growth Standards cut-offs for acute malnutrition. These are the tapes that have three colours (red, yellow, green) with colour cut-offs at 115 mm and 125 mm. The MUAC tapes should also be precise up to 1 mm. The material for the MUAC tape needs to be flexible but non-stretchable. An example of this kind of MUAC tape is shown in Figure \@ref(fig:muac1).
 
